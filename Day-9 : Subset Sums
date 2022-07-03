@@ -1,0 +1,23 @@
+class Solution
+{
+public:
+    void func(int i,int s,vector<int> &ans,vector<int> &arr,int N)
+    {
+        if(i==N)
+        {
+            ans.push_back(s);
+            return;
+        }
+        func(i+1,s+arr[i],ans,arr,N);
+        func(i+1,s,ans,arr,N);
+    }
+    
+    vector<int> subsetSums(vector<int> arr, int N)
+    {
+        // Write Your Code here
+        vector<int> ans;
+        func(0,0,ans,arr,N);
+        sort(ans.begin(),ans.end());
+        return ans;
+    }
+};
